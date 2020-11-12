@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-require('dotenv/config');
+require('dotenv').config();
 
 app.use(bodyParser.json());
 
@@ -22,7 +22,7 @@ app.get('/posts', (req, res) =>{
 //Connect To DB
 mongoose.connect(
     process.env.DB_CONNECTION,
-    { useNewUrlParser: true }, 
+    { useNewUrlParser: true, useUnifiedTopology:true }, 
     () => console.log('connected to DB!')
 ); 
 
